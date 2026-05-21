@@ -1,0 +1,20 @@
+---
+- name: Сreate VMs and inventory file for them
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create Yandex Cloud VMs
+      aykuli.yandex_cloud_elk.vms:
+        image_family: 'ubuntu-2404-lts'
+        names:
+          - clickhouse
+          - vector
+          - lighthouse
+      register: result_vms
+    - name: Print resulting messages of creating VMs
+      ansible.builtin.debug:
+        msg: "{{ result_vms }}"
+    - name: Write prev content to inventory/prod.yml file
+      fcreate:
+        path: inventory/prod.yml
+        content: "{{ result_vms.message }}"

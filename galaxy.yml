@@ -1,0 +1,10 @@
+#SPDX-License-Identifier: MIT-0
+namespace: aykuli
+name: yandex_cloud_elk
+version: 1.0.0
+authors:
+  - Aynur Shauerman <aykuli@ya.ru>
+description: Collection for creating Yandex Cloud infrastructure and configuring ELK
+readme: README.md
+license: MIT
+repository: https://github.com/aykuli/aykuli.yandex_cloud_elk
